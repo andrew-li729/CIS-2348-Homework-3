@@ -10,3 +10,8 @@ class Team:
         return self.teamwins / (self.teamwins + self.team_losses)
 
 
+win_average = Team()
+win_average.teamname = input()
+win_average.teamwins = int(input())
+win_average.team_losses = int(input())
+
