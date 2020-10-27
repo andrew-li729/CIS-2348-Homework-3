@@ -8,8 +8,10 @@ class ItemToPurchase:
         self.item_quantity = item_quantity
 
     def print_item_cost(self):
-        total = self.item_price * self.item_quantity
-        print("{} {} @ ${:.0f} = ${:.0f}".format(self.name, self.item_quantity, self.item_price, total))
+        print("{} {} @ ${:.0f} = ${:.0f}".format(self.name, self.item_quantity, self.item_price, self.item_price * self.item_quantity))
+
+    def compute_total(self):
+        return self.item_price * self.item_quantity
 
 
 print("Item 1")
@@ -27,3 +29,6 @@ item2 = ItemToPurchase(item2_name, item2_price, item2_quantity)
 print("TOTAL COST")
 item1.print_item_cost()
 item2.print_item_cost()
+total = item1.compute_total() + item2.compute_total()
+print()
+print("Total: ${:.0f}".format(total))
