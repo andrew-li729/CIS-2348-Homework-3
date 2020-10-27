@@ -15,3 +15,8 @@ win_average.teamname = input()
 win_average.teamwins = int(input())
 win_average.team_losses = int(input())
 
+# print(win_average.get_win_percentage())
+if win_average.get_win_percentage() > 0.5:
+    print("Congratulations, Team {} has a winning average!".format(win_average.teamname))
+else:
+    print("Team {} has a losing average.".format(win_average.teamname))
