@@ -20,10 +20,10 @@ class FoodItem:
 
 
 name = input()
-fat = int(input())
-carbs = int(input())
-protein = int(input())
-num_servings = int(input())
+fat = float(input())
+carbs = float(input())
+protein = float(input())
+num_servings = float(input())
 
 food = FoodItem(name, fat, carbs, protein)
 total_calories = food.get_calories(num_servings)
