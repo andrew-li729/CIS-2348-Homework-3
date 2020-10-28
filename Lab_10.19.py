@@ -87,6 +87,7 @@ if __name__ == '__main__':
     # initialize and print customer name and date
     name = input("Enter customer's name:\n")
     date = input("Enter today's date:\n")
+    print()
     print("Customer name:", name)
     print("Today's date:", date)
 
@@ -96,15 +97,14 @@ if __name__ == '__main__':
 
     def print_menu(cart):
         command = ""
+        print("\nMENU")
+        print("a - Add item to cart")
+        print("r - Remove item from cart")
+        print("c - Change item quantity")
+        print("i - Output items' descriptions")
+        print("o - Output shopping cart")
+        print("q - Quit\n")
         while command != "q":
-
-            print("\nMENU")
-            print("a - Add item to cart")
-            print("r - Remove item from cart")
-            print("c - Change item quantity")
-            print("i - Output items' descriptions")
-            print("o - Output shopping cart")
-            print("q - Quit\n")
             command = input("Choose an option:")
             while (command != 'a' and command != 'o' and command != 'i' and command != 'r'
                    and command != 'c' and command != 'q'):
