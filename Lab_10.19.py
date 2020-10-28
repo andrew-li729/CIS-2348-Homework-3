@@ -39,16 +39,19 @@ class ShoppingCart:
         for item in self.cart_items:
             if item_string == item.item_name:
                 del self.cart_items[self.cart_items.index(item)]
-                check = True
                 break
             else:
-                check = False
-        if check == False:
-            print("Item not found in cart. Nothing removed.")
-
+                print("Item not found in cart. Nothing removed.")
 
     def modify_item(self):
-        pass
+        item_string = input("Enter the item name:\n")
+        for item in self.cart_items:
+            if item_string == item.item_name:
+                new_quantity = int(input("Enter the new quantity:\n"))
+                item.item_quantity = new_quantity
+                break
+            else:
+                print("Item not found in cart. Nothing modified.")
 
     def get_num_items_in_cart(self):
         total_num_items = 0
