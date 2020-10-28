@@ -35,7 +35,17 @@ class ShoppingCart:
         self.cart_items.append(ItemToPurchase(item_name, item_price, item_quantity, item_description))
 
     def remove_item(self):
-        pass
+        item_string = input("Enter name of item to remove:\n")
+        for item in self.cart_items:
+            if item_string == item.item_name:
+                del self.cart_items[self.cart_items.index(item)]
+                check = True
+                break
+            else:
+                check = False
+        if check == False:
+            print("Item not found in cart. Nothing removed.")
+
 
     def modify_item(self):
         pass
@@ -103,8 +113,10 @@ if __name__ == '__main__':
             if command == "c":
                 cart.modify_item()
             if command == "i":
+                print("OUTPUT ITEMS' DESCRIPTIONS")
                 cart.print_descriptions()
             if command == "o":
+                print("OUTPUT SHOPPING CART")
                 cart.print_total()
 
 
