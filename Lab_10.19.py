@@ -9,7 +9,8 @@ class ItemToPurchase:
         self.item_description = item_description
 
     def print_item_cost(self):
-        print("{} {} @ ${:.0f} = ${:.0f}".format(self.item_name, self.item_quantity, self.item_price, self.item_price * self.item_quantity))
+        print("{} {} @ ${:.0f} = ${:.0f}".format(self.item_name, self.item_quantity, self.item_price,
+                                                 self.item_price * self.item_quantity))
 
     def print_item_description(self):
         print(self.item_description)
@@ -24,26 +25,87 @@ class ShoppingCart:
         self.current_date = current_date
         self.cart_items = cart_items
 
+    def add_item(self):
+        print('ADD ITEM TO CART')
+        item_name = str(input('Enter the item name:\n'))
+        item_description = str(input('Enter the item description:\n'))
+        item_price = int(input('Enter the item price:\n'))
+        item_quantity = int(input('Enter the item quantity:\n'))
+
+        self.cart_items.append(ItemToPurchase(item_name, item_price, item_quantity, item_description))
+
+    def remove_item(self):
+        pass
+
+    def modify_item(self):
+        pass
+
+    def get_num_items_in_cart(self):
+        total_num_items = 0
+        for item in self.cart_items:
+            num_items = item.item_quantity
+            total_num_items += num_items
+        return total_num_items
+
+    def get_cost_of_cart(self):
+        total = 0
+        for item in self.cart_items:
+            cost = item.item_price * item.item_quantity
+            total += cost
+        return total
+
+    def print_total(self):
+        print("{}'s Shopping Cart - {}".format(self.customer_name, self.current_date))
+        print("Number of items: {}\n".format(self.get_num_items_in_cart()))
+        for item in self.cart_items:
+            print("{} {} @ ${:.0f} = ${:.0f}".format(item.item_name, item.item_quantity, item.item_price,
+                                                     item.item_price * item.item_quantity))
+        print()
+        print("Total: ${}".format(self.get_cost_of_cart()))
+
+    def print_descriptions(self):
+        print("{}'s Shopping Cart - {}".format(self.customer_name, self.current_date))
+        print("Item Descriptions")
+        for item in self.cart_items:
+            print("{}: {}".format(item.item_name, item.item_description))
 
 
 if __name__ == '__main__':
-    print("Item 1")
-    item1_name = input("Enter the item name:\n")
-    item1_price = float(input("Enter the item price:\n"))
-    item1_quantity = int(input("Enter the item quantity:\n"))
-    item1 = ItemToPurchase(item1_name, item1_price, item1_quantity)
-    print()
+    # initialize and print customer name and date
+    name = input("Enter customer's name:\n")
+    date = input("Enter today's date:\n")
+    print("Customer name:", name)
+    print("Today's date:", date)
 
-    print("Item 2")
-    item2_name = input("Enter the item name:\n")
-    item2_price = float(input("Enter the item price:\n"))
-    item2_quantity = int(input("Enter the item quantity:\n"))
-    item2 = ItemToPurchase(item2_name, item2_price, item2_quantity)
-    print()
+    # create ShoppingCart object
+    cart1 = ShoppingCart(customer_name=name, current_date=date)
 
-    print("TOTAL COST")
-    item1.print_item_cost()
-    item2.print_item_cost()
-    total = item1.compute_total() + item2.compute_total()
-    print()
-    print("Total: ${:.0f}".format(total))
+
+    def print_menu(cart):
+        command = ""
+        while command != "q":
+
+            print("\nMENU")
+            print("a - Add item to cart")
+            print("r - Remove item from cart")
+            print("c - Change item quantity")
+            print("i - Output items' descriptions")
+            print("o - Output shopping cart")
+            print("q - Quit\n")
+            command = input("Choose an option:")
+            while (command != 'a' and command != 'o' and command != 'i' and command != 'r'
+                   and command != 'c' and command != 'q'):
+                command = input('Choose an option: ')
+            if command == 'a':
+                cart.add_item()
+            if command == "r":
+                cart.remove_item()
+            if command == "c":
+                cart.modify_item()
+            if command == "i":
+                cart.print_descriptions()
+            if command == "o":
+                cart.print_total()
+
+
+    print_menu(cart1)
