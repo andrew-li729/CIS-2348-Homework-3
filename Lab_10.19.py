@@ -89,19 +89,10 @@ class ShoppingCart:
 
 
 if __name__ == '__main__':
-    # initialize and print customer name and date
-    name = input("Enter customer's name:\n")
-    date = input("Enter today's date:\n")
-    print()
-    print("Customer name:", name)
-    print("Today's date:", date)
-
-    # create ShoppingCart object
-    cart1 = ShoppingCart(customer_name=name, current_date=date)
-
-
-    def print_menu(cart):
+    def print_menu(ShoppingCart):
+        cart = newCart
         command = ""
+
         print("\nMENU")
         print("a - Add item to cart")
         print("r - Remove item from cart")
@@ -126,6 +117,15 @@ if __name__ == '__main__':
             if command == "o":
                 print("OUTPUT SHOPPING CART")
                 cart.print_total()
+    # initialize and print customer name and date
+    name = input("Enter customer's name:\n")
 
+    date = input("Enter today's date:\n")
+    print()
+    print("Customer name:", name)
+    print("Today's date:", date)
 
-    print_menu(cart1)
+    # create ShoppingCart object
+    newCart = ShoppingCart(customer_name=name, current_date=date)
+
+    print_menu(newCart)
