@@ -68,13 +68,18 @@ class ShoppingCart:
         return total
 
     def print_total(self):
-        print("{}'s Shopping Cart - {}".format(self.customer_name, self.current_date))
-        print("Number of items: {}\n".format(self.get_num_items_in_cart()))
-        for item in self.cart_items:
-            print("{} {} @ ${:.0f} = ${:.0f}".format(item.item_name, item.item_quantity, item.item_price,
-                                                     item.item_price * item.item_quantity))
-        print()
-        print("Total: ${}".format(self.get_cost_of_cart()))
+        if not self.cart_items:
+            print("{}'s Shopping Cart - {}".format(self.customer_name, self.current_date))
+            print("Number of items: {}\n".format(self.get_num_items_in_cart()))
+            print("SHOPPING CART IS EMPTY")
+        else:
+            print("{}'s Shopping Cart - {}".format(self.customer_name, self.current_date))
+            print("Number of items: {}\n".format(self.get_num_items_in_cart()))
+            for item in self.cart_items:
+                print("{} {} @ ${:.0f} = ${:.0f}".format(item.item_name, item.item_quantity, item.item_price,
+                                                         item.item_price * item.item_quantity))
+            print()
+            print("Total: ${}".format(self.get_cost_of_cart()))
 
     def print_descriptions(self):
         print("{}'s Shopping Cart - {}".format(self.customer_name, self.current_date))
@@ -105,10 +110,10 @@ if __name__ == '__main__':
         print("o - Output shopping cart")
         print("q - Quit\n")
         while command != "q":
-            command = input("Choose an option:")
+            command = input("Choose an option:\n")
             while (command != 'a' and command != 'o' and command != 'i' and command != 'r'
                    and command != 'c' and command != 'q'):
-                command = input('Choose an option: ')
+                command = input('Choose an option:\n')
             if command == 'a':
                 cart.add_item()
             if command == "r":
