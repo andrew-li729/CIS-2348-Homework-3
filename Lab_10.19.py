@@ -70,11 +70,13 @@ class ShoppingCart:
     def print_total(self):
         if not self.cart_items:
             print("{}'s Shopping Cart - {}".format(self.customer_name, self.current_date))
-            print("Number of items: {}\n".format(self.get_num_items_in_cart()))
-            print("SHOPPING CART IS EMPTY")
+            print("Number of Items: {}\n".format(self.get_num_items_in_cart()))
+            print("SHOPPING CART IS EMPTY\n")
+            print("Total: ${}".format(self.get_cost_of_cart()))
+
         else:
             print("{}'s Shopping Cart - {}".format(self.customer_name, self.current_date))
-            print("Number of items: {}\n".format(self.get_num_items_in_cart()))
+            print("Number of Items: {}\n".format(self.get_num_items_in_cart()))
             for item in self.cart_items:
                 print("{} {} @ ${:.0f} = ${:.0f}".format(item.item_name, item.item_quantity, item.item_price,
                                                          item.item_price * item.item_quantity))
@@ -82,7 +84,7 @@ class ShoppingCart:
             print("Total: ${}".format(self.get_cost_of_cart()))
 
     def print_descriptions(self):
-        print("{}'s Shopping Cart - {}".format(self.customer_name, self.current_date))
+        print("{}'s Shopping Cart - {}\n".format(self.customer_name, self.current_date))
         print("Item Descriptions")
         for item in self.cart_items:
             print("{}: {}".format(item.item_name, item.item_description))
@@ -90,7 +92,7 @@ class ShoppingCart:
 
 def print_menu(cart):
     option = ""
-    print("\nMENU")
+    print("MENU")
     print("a - Add item to cart")
     print("r - Remove item from cart")
     print("c - Change item quantity")
