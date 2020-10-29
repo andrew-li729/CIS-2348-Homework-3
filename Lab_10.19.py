@@ -88,44 +88,43 @@ class ShoppingCart:
             print("{}: {}".format(item.item_name, item.item_description))
 
 
-if __name__ == '__main__':
-    def print_menu(ShoppingCart):
-        cart = newCart
-        command = ""
+def print_menu(cart):
+    option = ""
+    print("\nMENU")
+    print("a - Add item to cart")
+    print("r - Remove item from cart")
+    print("c - Change item quantity")
+    print("i - Output items' descriptions")
+    print("o - Output shopping cart")
+    print("q - Quit\n")
 
-        print("\nMENU")
-        print("a - Add item to cart")
-        print("r - Remove item from cart")
-        print("c - Change item quantity")
-        print("i - Output items' descriptions")
-        print("o - Output shopping cart")
-        print("q - Quit\n")
-        while command != "q":
-            command = input("Choose an option:\n")
-            while (command != 'a' and command != 'o' and command != 'i' and command != 'r'
-                   and command != 'c' and command != 'q'):
-                command = input('Choose an option:\n')
-            if command == 'a':
-                cart.add_item()
-            if command == "r":
-                cart.remove_item()
-            if command == "c":
-                cart.modify_item()
-            if command == "i":
-                print("OUTPUT ITEMS' DESCRIPTIONS")
-                cart.print_descriptions()
-            if command == "o":
-                print("OUTPUT SHOPPING CART")
-                cart.print_total()
+    while option != 'a' and option != 'o' and option != 'i' and option != 'r' and option != 'c' and option != 'q':
+        option = input('Choose an option:\n')
+    if option == 'a':
+        cart.add_item()
+    if option == "r":
+        cart.remove_item()
+    if option == "c":
+        cart.modify_item()
+    if option == "i":
+        print("OUTPUT ITEMS' DESCRIPTIONS")
+        cart.print_descriptions()
+    if option == "o":
+        print("OUTPUT SHOPPING CART")
+        cart.print_total()
+    return option
+
+
+if __name__ == '__main__':
     # initialize and print customer name and date
     name = input("Enter customer's name:\n")
-
     date = input("Enter today's date:\n")
     print()
     print("Customer name:", name)
     print("Today's date:", date)
-
+    option = ""
     # create ShoppingCart object
-    newCart = ShoppingCart(customer_name=name, current_date=date)
-
-    print_menu(newCart)
+    cart1 = ShoppingCart(customer_name=name, current_date=date)
+    while option != "q":
+        print("")
+        option = print_menu(cart1)
