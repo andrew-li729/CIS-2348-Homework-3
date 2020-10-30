@@ -34,14 +34,18 @@ class ShoppingCart:
 
         self.cart_items.append(ItemToPurchase(item_name, item_price, item_quantity, item_description))
 
-    def remove_item(self):
-        item_string = input("Enter name of item to remove:\n")
+    def remove_item(self, item_name):
+        flag = None
+        item_string = item_name
         for item in self.cart_items:
             if item_string == item.item_name:
+                flag = True
                 del self.cart_items[self.cart_items.index(item)]
                 break
             else:
-                print("Item not found in cart. Nothing removed.")
+                flag = False
+        if not flag:
+            print("Item not found in cart. Nothing removed.")
 
     def modify_item(self, ItemToPurchase):
         item_string = ItemToPurchase
@@ -108,7 +112,8 @@ def print_menu(cart):
     if option == 'a':
         cart.add_item()
     if option == "r":
-        cart.remove_item()
+        print("REMOVE ITEM FROM CART")
+        cart.remove_item(input("Enter name of item to remove:\n"))
     if option == "c":
         print("CHANGE ITEM QUANTITY")
         cart.modify_item(input("Enter the item name:\n"))
