@@ -45,20 +45,23 @@ class ShoppingCart:
 
     def modify_item(self):
         item_string = input("Enter the item name:\n")
+        flag = None
         for item in self.cart_items:
             if item_string == item.item_name:
                 new_quantity = int(input("Enter the new quantity:\n"))
                 item.item_quantity = new_quantity
+                flag = True
                 break
             else:
-                print("Item not found in cart. Nothing modified.")
+                flag = False
+        if not flag:
+            print("Item not found in cart. Nothing modified.")
 
     def get_num_items_in_cart(self):
-        total_num_items = 0
+        num_items = 0
         for item in self.cart_items:
-            num_items = item.item_quantity
-            total_num_items += num_items
-        return total_num_items
+            num_items += item.item_quantity
+        return num_items
 
     def get_cost_of_cart(self):
         total = 0
