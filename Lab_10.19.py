@@ -110,6 +110,7 @@ def print_menu(cart):
     if option == "r":
         cart.remove_item()
     if option == "c":
+        print("CHANGE ITEM QUANTITY")
         cart.modify_item(input("Enter item name:"))
     if option == "i":
         print("OUTPUT ITEMS' DESCRIPTIONS")
