@@ -59,7 +59,7 @@ while option != 'q':
     if option == "r":
         rating = input("Enter a rating:\n")
         print("\nABOVE", rating)
-        for key in player_dict:
+        for key in key_list:
             if player_dict[key] > rating:
                 print("Jersey number: {}, Rating: {}".format(key, player_dict[key]))
     if option == "o":
