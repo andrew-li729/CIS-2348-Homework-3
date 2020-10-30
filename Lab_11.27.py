@@ -46,13 +46,15 @@ while option != 'q':
         new_jersey = input("Enter a new player's jersey number:\n")
         new_rating = input("Enter the player's rating:\n")
         player_dict[new_jersey] = new_rating
+        key_list.append(new_jersey)
 
     if option == "d":
-        pass
+        key_to_delete = input("Enter a jersey number:\n")
+        del player_dict[key_to_delete]
+        key_list.remove(key_to_delete)
     if option == "u":
         pass
     if option == "r":
         pass
     if option == "o":
-        key_list.append(new_jersey)
         print_roster()
