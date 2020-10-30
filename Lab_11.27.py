@@ -18,7 +18,7 @@ for key in player_dict:
     key_list.append(key)
 
 key_list.sort(key=int)
-print(key_list)
+# print(key_list)  # for debugging
 
 # prints roster created from user inputs
 print("\nROSTER")
