@@ -57,6 +57,10 @@ while option != 'q':
         player_rating = input("Enter a new rating for player:\n")
         player_dict[jersey_num] = player_rating
     if option == "r":
-        pass
+        rating = input("Enter a rating:\n")
+        print("\nABOVE", rating)
+        for key in player_dict:
+            if player_dict[key] > rating:
+                print("Jersey number: {}, Rating: {}".format(key, player_dict[key]))
     if option == "o":
         print_roster()
