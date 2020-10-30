@@ -20,10 +20,10 @@ class ItemToPurchase:
 
 
 class ShoppingCart:
-    def __init__(self, customer_name="none", current_date="January 1, 2016", cart_items=[]):
+    def __init__(self, customer_name="none", current_date="January 1, 2016"):
         self.customer_name = customer_name
         self.current_date = current_date
-        self.cart_items = cart_items
+        self.cart_items = []
 
     def add_item(self):
         print('ADD ITEM TO CART')
