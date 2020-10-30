@@ -43,8 +43,8 @@ class ShoppingCart:
             else:
                 print("Item not found in cart. Nothing removed.")
 
-    def modify_item(self):
-        item_string = input("Enter the item name:\n")
+    def modify_item(self, ItemToPurchase):
+        item_string = ItemToPurchase
         new_quantity = int(input("Enter the new quantity:\n"))
         flag = None
         for item in self.cart_items:
@@ -110,7 +110,7 @@ def print_menu(cart):
     if option == "r":
         cart.remove_item()
     if option == "c":
-        cart.modify_item()
+        cart.modify_item(input("Enter item name:"))
     if option == "i":
         print("OUTPUT ITEMS' DESCRIPTIONS")
         cart.print_descriptions()
