@@ -18,3 +18,24 @@ key_list.sort()
 for key in key_list:
     print("Jersey number: {}, Rating: {}".format(key, player_dict[key]))
 
+while option != 'q':
+    print("MENU")
+    print("a - Add player")
+    print("d - Remove player")
+    print("u - Update player rating")
+    print("r - Output players above a rating")
+    print("o - Output roster")
+    print("q - Quit\n")
+
+    while option != 'a' and option != 'd' and option != 'u' and option != 'r' and option != 'o' and option != 'q':
+        option = input('Choose an option:\n')
+    if option == 'a':
+        pass
+    if option == "d":
+        pass
+    if option == "u":
+        pass
+    if option == "r":
+        pass
+    if option == "o":
+        pass
