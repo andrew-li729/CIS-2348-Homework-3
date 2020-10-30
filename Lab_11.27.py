@@ -14,12 +14,14 @@ for i in range(1, 6):
 for key in player_dict:
     key_list.append(key)
 key_list.sort()
+print()
+print("ROSTER")
 
 for key in key_list:
     print("Jersey number: {}, Rating: {}".format(key, player_dict[key]))
 
 while option != 'q':
-    print("MENU")
+    print("\nMENU")
     print("a - Add player")
     print("d - Remove player")
     print("u - Update player rating")
