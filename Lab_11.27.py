@@ -53,7 +53,9 @@ while option != 'q':
         del player_dict[key_to_delete]
         key_list.remove(key_to_delete)
     if option == "u":
-        pass
+        jersey_num = input("Enter a jersey number:\n")
+        player_rating = input("Enter a new rating for player:\n")
+        player_dict[jersey_num] = player_rating
     if option == "r":
         pass
     if option == "o":
