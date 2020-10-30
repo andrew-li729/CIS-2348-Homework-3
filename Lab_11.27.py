@@ -21,7 +21,7 @@ key_list.sort(key=int)
 # print(key_list)  # for debugging
 
 # prints roster created from user inputs
-print("\nROSTER")
+print("ROSTER")
 for key in key_list:
     print("Jersey number: {}, Rating: {}".format(key, player_dict[key]))
 
