@@ -45,10 +45,10 @@ class ShoppingCart:
 
     def modify_item(self):
         item_string = input("Enter the item name:\n")
+        new_quantity = int(input("Enter the new quantity:\n"))
         flag = None
         for item in self.cart_items:
             if item_string == item.item_name:
-                new_quantity = int(input("Enter the new quantity:\n"))
                 item.item_quantity = new_quantity
                 flag = True
                 break
